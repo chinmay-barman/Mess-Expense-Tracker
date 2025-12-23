@@ -1,0 +1,44 @@
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Container{
+}
+.MessMemberSection{
+}
+.MemberDetailsContainer{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.MemberDetailsTable thead tr{
+    background-color: yellow;
+}
+.MemberDetailsTable tbody tr{
+    background-color: lightblue;
+}
+.Contribution{
+    display: flex;
+    justify-content:space-around;
+    border: 1px solid black;
+}
+.AddMemberButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+.CalculateButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+.CalculationResultSection{
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.MemberSettlementSection{
+    display: flex;
+    justify-content: center;
+}
+.MemberSettlementDetails thead tr{
+    background-color: yellow;
+}

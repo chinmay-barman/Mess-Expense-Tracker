@@ -7,6 +7,64 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="Container">
+        <div class="MessMemberSection">
+            <div class="MemberDetailsContainer">
+                <table class="MemberDetailsTable">
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th >Contribution</th>
+                            <th>Days Eaten</th>
+                            <th>Add Expenses</th>
+                            <th>Delete Member</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="MemberName"><input type="text" placeholder="Member Name"></td>
+                            <td class="Contribution"><p>0</p><button>View</button></td>
+                            <td class="DaysEaten"><input type="text" placeholder="Days"></td>
+                            <td class="AddExpense"><button>Add Expense</button></td>
+                            <td class="DeleteMember"><button>Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="AddMemberButtonContainer">
+                <button class="AddMemberButton">Add Member</button>
+            </div>
+            <div class="CalculateButtonContainer">
+                <button class="CalculateButton">Calculate</button>
+            </div>
+        </div>
+        <div class="CalculationResultSection">
+            <div class="ExpenseTrackingSection">
+                <h2>Expense Tracking</h2>
+                <div>
+                    <p id="TotalExpense">Total Expense: <span>0</span></p>
+                    <p id="PerHeadPerDayCost">Per Head Per Day: <span>0</span></p>
+                </div>
+            </div>
+            <div class="MemberSettlementSection">
+                <table class="MemberSettlementDetails">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contribution</th>
+                            <th>Bill</th>
+                            <th>Give/Get</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="DownloadExpenseTrackingDetails">
+                <button>Download PNG</button>
+            </div>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
