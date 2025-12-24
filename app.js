@@ -1,6 +1,9 @@
 addMemberButton = document.querySelector('.AddMemberButton');
 addMemberButton.addEventListener('click', addMemberFunction);
 
+function removeButtonFunction(deleteButton){
+    deleteButton.parentElement.parentElement.remove();
+}
 function addMemberFunction(){
     const newRow=document.createElement('tr');
     document.querySelector('.MemberDetailsTable tbody').appendChild(newRow);
@@ -37,6 +40,6 @@ function createNewAddExpense(){
 function createNewDeleteMember(){
     const newdeleteMember = document.createElement('td');
     newdeleteMember.classList.add('DeleteMember');
-    newdeleteMember.innerHTML=`<button>Remove</button>`;
+    newdeleteMember.innerHTML=`<button onclick="removeButtonFunction(this)">Remove</button>`;
     return newdeleteMember;
 }
