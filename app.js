@@ -16,7 +16,7 @@ function addMemberFunction(){
 function createNewMember(){
     const newmembername =document.createElement('td');
     newmembername.classList.add('MemberName');
-    newmembername.innerHTML=`<input type="text" placeholder="Member Name">`;
+    newmembername.innerHTML=`<input type="text" placeholder="${document.querySelectorAll(".MemberName").length+1} Member Name">`;
     return newmembername;
 }
 function createNewcontribution(){
