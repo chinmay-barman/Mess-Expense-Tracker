@@ -5,10 +5,8 @@ const calculateButton = document.querySelector('.CalculateButton');
 calculateButton.addEventListener('click', calculateFunction);
 
 
-
-
 function calculateFunction(){
-    document.getElementById('overallExpenseContainer').style.display = 'block';
+    document.getElementById('overallExpenseTable').hidden = false;
 }
 
 function removeButtonFunction(deleteButton){
@@ -22,14 +20,15 @@ function addMemberFunction(){
     newRow.appendChild(createNewDaysEaten());
     newRow.appendChild(createNewAddExpense());
     newRow.appendChild(createNewDeleteMember());
-    if(document.getElementById('overallExpenseContainer').style.display=='block'){
-        document.getElementById('overallExpenseContainer').style.display='none';
-    }
+    
+    document.getElementById('overallExpenseTable').hidden = true;
 }
+let memberCount =1;
 function createNewMember(){
     const newmembername =document.createElement('td');
     newmembername.classList.add('MemberName');
-    newmembername.innerHTML=`<input type="text" placeholder="${document.querySelectorAll(".MemberName").length+1} Member Name">`;
+    newmembername.innerHTML=`<input type="text" placeholder="${memberCount+1} Member Name">`;
+    memberCount+=1;
     return newmembername;
 }
 function createNewcontribution(){
