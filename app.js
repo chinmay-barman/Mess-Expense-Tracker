@@ -1,5 +1,15 @@
-addMemberButton = document.querySelector('.AddMemberButton');
+const addMemberButton = document.querySelector('.AddMemberButton');
 addMemberButton.addEventListener('click', addMemberFunction);
+
+const calculateButton = document.querySelector('.CalculateButton');
+calculateButton.addEventListener('click', calculateFunction);
+
+
+
+
+function calculateFunction(){
+    document.getElementById('overallExpenseContainer').style.display = 'block';
+}
 
 function removeButtonFunction(deleteButton){
     deleteButton.parentElement.parentElement.remove();
@@ -12,6 +22,9 @@ function addMemberFunction(){
     newRow.appendChild(createNewDaysEaten());
     newRow.appendChild(createNewAddExpense());
     newRow.appendChild(createNewDeleteMember());
+    if(document.getElementById('overallExpenseContainer').style.display=='block'){
+        document.getElementById('overallExpenseContainer').style.display='none';
+    }
 }
 function createNewMember(){
     const newmembername =document.createElement('td');
