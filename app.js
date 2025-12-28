@@ -4,9 +4,39 @@ addMemberButton.addEventListener('click', addMemberFunction);
 const calculateButton = document.querySelector('.CalculateButton');
 calculateButton.addEventListener('click', calculateFunction);
 
+const overallExpenseContainer = document.querySelector('#overallExpenseContainer');
 
 function calculateFunction(){
-    document.getElementById('overallExpenseTable').hidden = false;
+    if(overallExpenseContainer.childElementCount==0){
+        addOverallExpenseTable();
+    }
+    else{
+        removeOverallExpenseTable();
+        addOverallExpenseTable();
+    }
+}
+
+function addOverallExpenseTable(){
+    const overallExpenseTable=document.createElement('table');
+    const newTableHeader = document.createElement('thead');
+    overallExpenseTable.appendChild(newTableHeader);
+    const newTableHeaderRow = document.createElement('tr');
+    newTableHeader.appendChild(newTableHeaderRow);
+    newTableHeaderRow.appendChild(document.createElement('th'));
+    newTableHeaderRow.appendChild(document.createElement('th'));
+    newTableHeaderRow.appendChild(document.createElement('th'));
+    newTableHeaderRow.appendChild(document.createElement('th'));
+
+    newTableHeaderRow.children[0].innerHTML = "Member Name";
+    newTableHeaderRow.children[1].innerHTML = "Contribution";
+    newTableHeaderRow.children[2].innerHTML = "Total Contribution";
+    newTableHeaderRow.children[3].innerHTML = "Days Eaten";
+
+    overallExpenseContainer.appendChild(overallExpenseTable);
+}
+
+function removeOverallExpenseTable(){
+    overallExpenseContainer.removeChild(overallExpenseContainer.children[0]);
 }
 
 function removeButtonFunction(deleteButton){
@@ -20,8 +50,10 @@ function addMemberFunction(){
     newRow.appendChild(createNewDaysEaten());
     newRow.appendChild(createNewAddExpense());
     newRow.appendChild(createNewDeleteMember());
-    
-    document.getElementById('overallExpenseTable').hidden = true;
+        
+    if(overallExpenseContainer.childElementCount>0){
+        removeOverallExpenseTable();
+    }
 }
 let memberCount =1;
 function createNewMember(){

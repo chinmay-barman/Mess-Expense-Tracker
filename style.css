@@ -33,6 +33,9 @@ body{
     display: flex;
     justify-content: center;
 }
+#overallExpenseTable thead tr{
+    background-color: lightgreen;
+}
 .CalculationResultSection{
     border: 1px solid black;
     text-align: center;
