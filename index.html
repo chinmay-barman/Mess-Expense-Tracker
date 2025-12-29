@@ -37,18 +37,30 @@
             <div class="CalculateButtonContainer">
                 <button class="CalculateButton">Calculate</button>
             </div>
-            <div id="overallExpenseContainer"></div>
+            <div id="overallExpenseContainer">
+                <h2>Overview</h2>
+                <table id="overallExpenseTable">
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Contributions</th>
+                            <th>Total Contribution</th>
+                            <th>Days Eaten</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
         <div class="CalculationResultSection">
             <div class="ExpenseTrackingSection">
-                <h2>Expense Tracking</h2>
+                <h2>Settlement Section</h2>
                 <div>
                     <p id="TotalExpense">Total Expense: <span>0</span></p>
                     <p id="PerHeadPerDayCost">Per Head Per Day: <span>0</span></p>
                 </div>
             </div>
             <div class="MemberSettlementSection">
-                <table class="MemberSettlementDetails">
+                <table class="MemberSettlementTable">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -57,8 +69,6 @@
                             <th>Give/Get</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
                 </table>
             </div>
             <div class="DownloadExpenseTrackingDetails">

@@ -5,63 +5,10 @@ const calculateButton = document.querySelector('.CalculateButton');
 calculateButton.addEventListener('click', calculateFunction);
 
 const overallExpenseContainer = document.querySelector('#overallExpenseContainer');
+const overallExpenseTable = document.querySelector('#overallExpenseTable');
+const newTableHeader = document.createElement('thead');
+const MemberSettlementTable = document.querySelector('.MemberSettlementTable');
 
-function calculateFunction(){
-    if(overallExpenseContainer.childElementCount==0){
-        addOverallExpenseTable();
-    }
-    else{
-        removeOverallExpenseTable();
-        addOverallExpenseTable();
-    }
-}
-
-function addOverallExpenseTable(){
-    const MemberNames = document.querySelectorAll('.MemberName');
-    const Contributions = document.querySelectorAll('.Contribution');
-    const DaysEaten = document.querySelectorAll('.DaysEaten');
-
-    const overallExpenseTable=document.createElement('table');
-    const newTableHeader = document.createElement('thead');
-    overallExpenseTable.appendChild(newTableHeader);
-    const newTableHeaderRow = document.createElement('tr');
-    newTableHeader.appendChild(newTableHeaderRow);
-    newTableHeaderRow.appendChild(document.createElement('th'));
-    newTableHeaderRow.appendChild(document.createElement('th'));
-    newTableHeaderRow.appendChild(document.createElement('th'));
-    newTableHeaderRow.appendChild(document.createElement('th'));
-
-    newTableHeaderRow.children[0].innerHTML = "Member Name";
-    newTableHeaderRow.children[1].innerHTML = "Contribution";
-    newTableHeaderRow.children[2].innerHTML = "Total Contribution";
-    newTableHeaderRow.children[3].innerHTML = "Days Eaten";
-
-    const newTableBody = document.createElement('tbody');
-    overallExpenseTable.appendChild(newTableBody);
-
-    for(let i=0;i<MemberNames.length;i++){
-        const newTableBodyRow = document.createElement('tr');
-        newTableBody.appendChild(newTableBodyRow);
-        
-        for(let j=0;j<4;j++){
-            newTableBodyRow.appendChild(document.createElement('td'));
-        }
-    }
-
-    for(let i=0;i<MemberNames.length;i++){
-        newTableBody.children[i].children[0].innerHTML=MemberNames[i].firstChild.value;
-        newTableBody.children[i].children[3].innerHTML=DaysEaten[i].firstChild.value;
-    }
-    overallExpenseContainer.appendChild(overallExpenseTable);
-}
-
-function removeOverallExpenseTable(){
-    overallExpenseContainer.removeChild(overallExpenseContainer.children[0]);
-}
-
-function removeButtonFunction(deleteButton){
-    deleteButton.parentElement.parentElement.remove();
-}
 function addMemberFunction(){
     const newRow=document.createElement('tr');
     document.querySelector('.MemberDetailsTable tbody').appendChild(newRow);
@@ -71,10 +18,12 @@ function addMemberFunction(){
     newRow.appendChild(createNewAddExpense());
     newRow.appendChild(createNewDeleteMember());
         
-    if(overallExpenseContainer.childElementCount>0){
-        removeOverallExpenseTable();
+    if(overallExpenseContainer.childElementCount>0 && MemberSettlementTable.childElementCount>1){
+        removeOverallExpenseTableBody();
+        removeMemberSettlementTableBody();
     }
 }
+
 let memberCount =1;
 function createNewMember(){
     const newmembername =document.createElement('td');
@@ -106,4 +55,67 @@ function createNewDeleteMember(){
     newdeleteMember.classList.add('DeleteMember');
     newdeleteMember.innerHTML=`<button onclick="removeButtonFunction(this)">Remove</button>`;
     return newdeleteMember;
+}
+
+function removeButtonFunction(deleteButton){
+    deleteButton.parentElement.parentElement.remove();
+}
+
+function calculateFunction(){
+    if(overallExpenseTable.childElementCount== 1 && MemberSettlementTable.childElementCount == 1 ){
+        addOverallExpenseTableBody();
+        addMemberSettlementTableBody();
+    }
+    else{
+        removeOverallExpenseTableBody();
+        addOverallExpenseTableBody();
+
+        removeMemberSettlementTableBody();
+        addMemberSettlementTableBody();
+    }
+}
+
+
+function addOverallExpenseTableBody(){
+    const MemberNames = document.querySelectorAll('.MemberName');
+    const Contributions = document.querySelectorAll('.Contribution');
+    const DaysEaten = document.querySelectorAll('.DaysEaten');
+
+    const newTableBody = document.createElement('tbody');
+
+    for(let i=0;i<MemberNames.length;i++){
+        const newTableBodyRow = document.createElement('tr');
+        newTableBody.appendChild(newTableBodyRow);
+        
+        for(let j=0;j<4;j++){
+            newTableBodyRow.appendChild(document.createElement('td'));
+        }
+    }
+
+    for(let i=0;i<MemberNames.length;i++){
+        newTableBody.children[i].children[0].innerHTML=MemberNames[i].firstChild.value;
+        newTableBody.children[i].children[3].innerHTML=DaysEaten[i].firstChild.value;
+    }
+    overallExpenseTable.appendChild(newTableBody);
+}
+
+function removeOverallExpenseTableBody(){
+    overallExpenseTable.children[1].remove();
+}
+
+function addMemberSettlementTableBody(){
+    const MemberSettlementTableBody = document.createElement('tbody');
+    MemberSettlementTable.appendChild(MemberSettlementTableBody);
+    const MemberNames = document.querySelectorAll('.MemberName');
+    for(let i=0;i<MemberNames.length;i++){
+        MemberSettlementTableBody.appendChild(document.createElement('tr'));
+        for(let j=0;j<4;j++){
+            MemberSettlementTableBody.children[i].appendChild(document.createElement('td'));
+        }
+        MemberSettlementTableBody.children[i].children[0].innerHTML=MemberNames[i].firstChild.value;
+    }
+}
+
+function removeMemberSettlementTableBody(){
+    MemberSettlementTable.children[1].remove();
 }
