@@ -33,8 +33,11 @@ body{
     display: flex;
     justify-content: center;
 }
-#overallExpenseTable thead tr{
+#overallExpenseContainer Table thead tr{
     background-color: lightgreen;
+}
+#overallExpenseContainer Table tbody tr td{
+    text-align: center;
 }
 .CalculationResultSection{
     border: 1px solid black;

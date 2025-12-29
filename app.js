@@ -17,6 +17,10 @@ function calculateFunction(){
 }
 
 function addOverallExpenseTable(){
+    const MemberNames = document.querySelectorAll('.MemberName');
+    const Contributions = document.querySelectorAll('.Contribution');
+    const DaysEaten = document.querySelectorAll('.DaysEaten');
+
     const overallExpenseTable=document.createElement('table');
     const newTableHeader = document.createElement('thead');
     overallExpenseTable.appendChild(newTableHeader);
@@ -32,6 +36,22 @@ function addOverallExpenseTable(){
     newTableHeaderRow.children[2].innerHTML = "Total Contribution";
     newTableHeaderRow.children[3].innerHTML = "Days Eaten";
 
+    const newTableBody = document.createElement('tbody');
+    overallExpenseTable.appendChild(newTableBody);
+
+    for(let i=0;i<MemberNames.length;i++){
+        const newTableBodyRow = document.createElement('tr');
+        newTableBody.appendChild(newTableBodyRow);
+        
+        for(let j=0;j<4;j++){
+            newTableBodyRow.appendChild(document.createElement('td'));
+        }
+    }
+
+    for(let i=0;i<MemberNames.length;i++){
+        newTableBody.children[i].children[0].innerHTML=MemberNames[i].firstChild.value;
+        newTableBody.children[i].children[3].innerHTML=DaysEaten[i].firstChild.value;
+    }
     overallExpenseContainer.appendChild(overallExpenseTable);
 }
 
