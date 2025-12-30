@@ -1,48 +1,116 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #1c1a26;
+    color: #f5f6fa;
 }
 .Container{
 }
 .MessMemberSection{
+    display: flex;
+    flex-direction: column;
 }
 .MemberDetailsContainer{
     text-align: center;
     display: flex;
     justify-content: center;
 }
-.MemberDetailsTable thead tr{
-    background-color: yellow;
+.MemberDetailsTable thead tr th{
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    background-color: #a4d038;
+    box-shadow: 0px 0px 500px #b8f8c6;
 }
-.MemberDetailsTable tbody tr{
-    background-color: lightblue;
+.MemberDetailsTable tbody tr td{
+    background-color: #312e3f;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #000000;
+}
+.MemberDetailsTable tbody tr td input{
+    font-weight: bold;
+    text-align: center;
+    height: 35px;
+    width: 90%;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    background-color: #8b8b8b;
+    box-shadow: 0px 0px 5px #000000, inset 0px 0px 20px #b8f8c6;
+}
+.MemberDetailsTable tbody tr td button{
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    background-color: #d9eaab;
+    height: 30px;
+    box-shadow: 0px 0px 10px #000000, inset 0px 0px 20px #a4d038;
+}
+.MemberDetailsTable tbody tr td input::placeholder{
+    font-weight: 100;
+    text-shadow: 0px 0px 10px white;
+    color: #000000;
+    text-align: center;
 }
 .Contribution{
     display: flex;
     justify-content:space-around;
-    border: 1px solid black;
+    align-items: center;
+}
+.TwoButtonContainer{
+    margin: 25px 0px 25px 0px;
+    display: flex;
+    justify-content: center;
 }
 .AddMemberButtonContainer{
+    margin-right: 25px;
     display: flex;
     justify-content: center;
 }
+.AddMemberButton{
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #ffb2ff;
+    box-shadow: 0px 0px 8px #000000, inset 0px 0px 10px #b64fc8;
+}
 .CalculateButtonContainer{
+    margin-left: 25px;
     display: flex;
     justify-content: center;
+}
+.CalculateButton{
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #ffb2ff;
+    box-shadow: 0px 0px 8px #000000, inset 0px 0px 10px #b64fc8;
 }
 #overallExpenseContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#overallExpenseContainer Table thead tr{
-    background-color: lightgreen;
+#overallExpenseContainer Table thead tr th{
+    color: #000000;
+    background-color: #9e55fc;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 500px #7f39fb;
 }
-#overallExpenseContainer Table tbody tr{
+#overallExpenseContainer Table tbody tr td{
+    border: none;
+    border-radius: 10px;
     text-align: center;
-    background-color: aqua;
+    color: #000000;
+    padding: 10px;
+    background-color: #d7b7fd;
+    box-shadow: inset 0px 0px 10px #9e55fc;
 }
 .CalculationResultSection{
-    border: 1px solid black;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -51,10 +119,20 @@ body{
     display: flex;
     justify-content: center;
 }
-.MemberSettlementTable thead tr{
-    background-color: yellow;
+.MemberSettlementTable thead tr th{
+    color: #000000;
+    background-color: #47d5a6;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 500px #47d5a6;
 }
-.MemberSettlementTable tbody tr{
+.MemberSettlementTable tbody tr td{
     text-align: center;
-    background-color: salmon;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: #000000;
+    background-color: #c8fff4;
+    box-shadow: inset 0px 0px 5px #47d5a6;
 }
